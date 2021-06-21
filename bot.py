@@ -23,7 +23,7 @@ def send_welcome(message):
 def get_Age(message):
     global Age
     Age = message.text
-    if is_digit(Age) is True and Age[0] is not '-':
+    if is_digit(Age) is True and float(Age) > 0:
         mas.append(float(Age))
         bot.send_message(message.from_user.id, 'Ваш рост в см?')
         bot.register_next_step_handler(message, get_Height)
@@ -35,7 +35,7 @@ def get_Age(message):
 def get_Height(message):
     global Height
     Height = message.text
-    if is_digit(Height) is True and Height[0] is not ('-' and '0'):
+    if is_digit(Height) is True and float(Height) > 0:
         mas.append(float(Height))
         bot.send_message(message.from_user.id, 'Ваш вес в кг?')
         bot.register_next_step_handler(message, get_Weight)
@@ -47,7 +47,7 @@ def get_Height(message):
 def get_Weight(message):
     global Weight
     Weight = message.text
-    if is_digit(Weight) is True and Weight[0] is not '-':
+    if is_digit(Weight) is True and float(Weight) > 0:
         mas.append(float(Weight))
         bot.send_message(message.from_user.id, 'Ваш обхват грудной клетки в см?')
         bot.register_next_step_handler(message, get_Girth)
@@ -59,7 +59,7 @@ def get_Weight(message):
 def get_Girth(message):
     global Girth
     Girth = message.text
-    if is_digit(Girth) is True and Girth[0] is not '-':
+    if is_digit(Girth) is True and float(Girth) > 0:
         mas.append(float(Girth))
         bot.send_message(message.from_user.id, '💪 Ваше телосложение по индексу Пинье:\n')
         bot.send_message(message.from_user.id, ans_Pin(mas[1], mas[2], mas[3]))
