@@ -35,7 +35,7 @@ def get_Age(message):
 def get_Height(message):
     global Height
     Height = message.text
-    if is_digit(Height) is True and Height[0] is not '-':
+    if is_digit(Height) is True and Height[0] is not ('-' and '0'):
         mas.append(float(Height))
         bot.send_message(message.from_user.id, 'Ваш вес в кг?')
         bot.register_next_step_handler(message, get_Weight)
